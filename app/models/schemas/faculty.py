@@ -1,13 +1,12 @@
-from typing import List
+from __future__ import annotations
 
+from typing import TYPE_CHECKING, List
 from pydantic import validator
-from pydantic.main import BaseModel
+from pydantic import BaseModel
 
 
 class FacultyBase(BaseModel):
     name: str
-    profile: str
-    level: str
 
     class Config:
         orm_mode = True

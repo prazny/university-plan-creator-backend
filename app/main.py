@@ -6,6 +6,8 @@ from dotenv import dotenv_values, find_dotenv
 import os
 from os.path import join, dirname
 from dotenv import load_dotenv
+from app.models.domain.faculty import Faculty
+from app.models.domain.field import Field
 
 
 def get_application() -> FastAPI:

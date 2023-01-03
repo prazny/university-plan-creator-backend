@@ -25,7 +25,13 @@ if config.config_file_name is not None:
 sys.path = ['', '..'] + sys.path[1:]
 
 from app.models.domain.base import Base
+from app.models.domain.activity import Activity
+from app.models.domain.course import Course
 from app.models.domain.faculty import Faculty
+from app.models.domain.field import Field
+from app.models.domain.module import Module
+from app.models.domain.plan import Plan
+from app.models.domain.semester import Semester
 
 target_metadata = Base.metadata
 
