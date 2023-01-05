@@ -8,7 +8,7 @@ from app.models.repositories import faculties as faculties_repo
 router = APIRouter()
 
 
-@router.get("", response_model=list[FacultyBase], tags=['faculties'])
+@router.get("", response_model=list[Faculty], tags=['faculties'])
 async def get_faculties(offset: int = 0, limit: int = 25, db: Session = Depends(get_db)):
     return faculties_repo.get_faculties(db, offset, limit)
 
