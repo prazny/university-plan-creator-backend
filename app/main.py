@@ -32,5 +32,4 @@ def get_application() -> FastAPI:
 
     return application
 
-print("aaaaaaas")
 app = get_application()

@@ -16,5 +16,4 @@ async def get_faculties(offset: int = 0, limit: int = 25, db: Session = Depends(
 @router.post("", response_model=Faculty, tags=['faculties'])
 def create_faculty(faculty: FacultyCreate, db: Session = Depends(get_db)):
     it = faculties_repo.create_faculty(db, faculty)
-    print(it)
     return it

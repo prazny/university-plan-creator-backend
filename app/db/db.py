@@ -4,7 +4,6 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 config_env = {**dotenv_values()}
-print(config_env.get("SQLALCHEMY_DATABASE_URL"))
 engine = create_engine(
     config_env.get("SQLALCHEMY_DATABASE_URL"), connect_args={}
 )
