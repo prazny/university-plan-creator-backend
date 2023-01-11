@@ -5,9 +5,9 @@ from sqlalchemy import Column, Integer, String, Enum, Boolean
 from app.models.domain.base import Base
 
 
-class OpinionStatus(enum.Enum):
-    positive = 'Positive'
-    negative = 'Negative'
+class Status(enum.Enum):
+    positive = 'positive'
+    negative = 'negative'
 
 
 class Opinion(Base):
@@ -15,4 +15,6 @@ class Opinion(Base):
     id = Column(Integer, primary_key=True, index=True)
     is_approved = Column(Boolean, nullable=False)
     description = Column(String(50), nullable=False)
-    type = Column(Enum(OpinionStatus), nullable=True)
+    status = Column(Enum(Status), nullable=True)
+    user = Column(String(50), nullable=False)
+    plan = Column(String(50), nullable=False)

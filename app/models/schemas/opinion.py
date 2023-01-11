@@ -4,14 +4,16 @@ from typing import List
 
 from pydantic import validator
 
-from app.models.domain.opinion import OpinionStatus
+from app.models.domain.opinion import Status
 from app.models.schemas.base import Base as BaseModel
 
 
 class OpinionBase(BaseModel):
     is_approved: bool
     description: str
-    status: OpinionStatus
+    status: Status
+    user: str
+    plan: str
 
     class Config:
         orm_mode = True
