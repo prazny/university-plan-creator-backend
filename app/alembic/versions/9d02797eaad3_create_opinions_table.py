@@ -20,7 +20,9 @@ def upgrade() -> None:
                     sa.Column('id', sa.Integer(), nullable=False),
                     sa.Column('is_approved', sa.Boolean(), nullable=False),
                     sa.Column('description', sa.String(length=50), nullable=False),
-                    sa.Column('status', sa.Enum('Positive', 'Negative', name='opinion_status'), nullable=True),
+                    sa.Column('status', sa.Enum('positive', 'negative', name='opinion_status'), nullable=True),
+                    sa.Column('user', sa.String(length=50), nullable=False),
+                    sa.Column('plan', sa.String(length=50), nullable=False),
                     sa.PrimaryKeyConstraint('id')
                     )
     op.create_index(op.f('ix_opinions_id'), 'opinions', ['id'], unique=False)
