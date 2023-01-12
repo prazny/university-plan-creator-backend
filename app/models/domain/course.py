@@ -22,7 +22,12 @@ class Form(enum.Enum):
 class Course(Base):
     __tablename__ = 'courses'
     id = Column(Integer, primary_key=True, index=True)
+    ects = Column(Integer, nullable=False)
+    cnps = Column(Integer, nullable=False)
+    zzu = Column(Integer, nullable=False)
+    bu = Column(Integer, nullable=False)
     hours_count = Column(Integer, nullable=False)
+    direction = Column(String(50), nullable=False)
     code = Column(String(50), nullable=False)
     type = Column(Enum(Type), nullable=False)
     completing_form = Column(String(50))

@@ -9,7 +9,12 @@ from app.models.schemas.base import Base as BaseModel
 
 
 class CourseBase(BaseModel):
+    ects: int
+    cnps: int
+    zzu: int
+    bu: int
     hours_count: int
+    direction: str
     code: str
     type: Type
     completing_form: str
