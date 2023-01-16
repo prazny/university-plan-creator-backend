@@ -22,6 +22,7 @@ class Form(enum.Enum):
 class Course(Base):
     __tablename__ = 'courses'
     id = Column(Integer, primary_key=True, index=True)
+    name = Column(String(50), nullable=False)
     ects = Column(Integer, nullable=False)
     cnps = Column(Integer, nullable=False)
     zzu = Column(Integer, nullable=False)

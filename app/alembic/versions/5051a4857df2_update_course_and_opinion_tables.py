@@ -20,6 +20,7 @@ def upgrade() -> None:
     op.drop_table("courses")
     op.create_table('courses',
                     sa.Column('id', sa.Integer(), nullable=False),
+                    sa.Column('name', sa.String(length=50), nullable=False),
                     sa.Column('ects', sa.Integer(), nullable=False),
                     sa.Column('cnps', sa.Integer(), nullable=False),
                     sa.Column('zzu', sa.Integer(), nullable=False),

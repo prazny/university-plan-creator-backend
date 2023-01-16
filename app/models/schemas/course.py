@@ -10,6 +10,7 @@ from app.models.schemas.base import Base as BaseModel
 
 class CourseBase(BaseModel):
     ects: int
+    name: str
     cnps: int
     zzu: int
     bu: int
