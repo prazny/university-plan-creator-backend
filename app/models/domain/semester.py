@@ -18,4 +18,4 @@ class Semester(Base):
     max_ects_deficit = Column(Integer(), nullable=False)
     semester_number = Column(Integer(), nullable=False)
 
-    plans = relationship("Semester", secondary=plan_semester, back_populates="semesters")
+    plans = relationship("Semester", secondary=plan_semester, backref="semesters")

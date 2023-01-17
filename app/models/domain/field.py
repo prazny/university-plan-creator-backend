@@ -22,5 +22,5 @@ class Field(Base):
     level = Column(Enum(Level), nullable=False)
     faculty_id = Column(Integer, ForeignKey("faculties.id"), nullable=False)
 
-    faculty = relationship("Faculty", back_populates="fields")
-    #plans = relationship("Plan", back_populates="field")
+    faculty = relationship("Faculty", backref="fields")
+    plans = relationship("Plan", backref="fields")

@@ -1,8 +1,12 @@
 from typing import List
+import enum
 
 from pydantic import validator
 from app.models.schemas.base import Base as BaseModel
 
+class Form(enum.Enum):
+    fulltime = 'fulltime'
+    parttime = 'parttime'
 
 class PlanBase(BaseModel):
     year: int
@@ -23,5 +27,5 @@ class PlanCreate(PlanBase):
     pass
 
 
-class ModuleUpdate(ModuleBase):
+class PlanUpdate(PlanBase):
     pass
