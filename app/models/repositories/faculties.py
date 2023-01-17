@@ -19,3 +19,11 @@ def create_faculty(db: Session, faculty: FacultyCreate) -> schemaFac:
     db.commit()
     db.refresh(db_item)
     return db_item
+
+def delete_faculty(db: Session, id: int) -> bool:
+    db_item = get_faculty(db, id)
+    db.delete(db_item)
+    db.commit()
+    return True
+
+

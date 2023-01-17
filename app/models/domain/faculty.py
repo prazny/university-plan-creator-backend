@@ -8,4 +8,4 @@ class Faculty(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String(50), nullable=False)
 
-    fields = relationship("Field", back_populates='faculty')
+    # fields = relationship("Field", backref='faculty')
