@@ -4,12 +4,12 @@ from sqlalchemy.orm import relationship
 from app.models.domain.base import Base
 
 
-class Level(enum.Enum):
+class Level(str, enum.Enum):
     undergraduate = 'undergraduate'
     engineering = 'engineering'
 
 
-class Profile(enum.Enum):
+class Profile(str, enum.Enum):
     academic = 'academic'
     practical = 'practical'
 
@@ -22,5 +22,5 @@ class Field(Base):
     level = Column(Enum(Level), nullable=False)
     faculty_id = Column(Integer, ForeignKey("faculties.id"), nullable=False)
 
-    faculty = relationship("Faculty", back_populates="fields")
-    #plans = relationship("Plan", back_populates="field")
+    faculty = relationship("Faculty", backref="fields")
+    plans = relationship("Plan", backref="fields")

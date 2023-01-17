@@ -17,3 +17,9 @@ async def get_faculties(offset: int = 0, limit: int = 25, db: Session = Depends(
 def create_faculty(faculty: FacultyCreate, db: Session = Depends(get_db)):
     it = faculties_repo.create_faculty(db, faculty)
     return it
+
+
+@router.delete("/{id}", response_model=bool, tags=['faculties'])
+def create_faculty(id: int, db: Session = Depends(get_db)):
+    it = faculties_repo.delete_faculty(db, id)
+    return it

@@ -7,6 +7,7 @@ from app.models.schemas.base import Base as BaseModel
 class SemesterBase(BaseModel):
     max_ects_deficit: int
     semester_number: int
+    plan_id: int
 
     class Config:
         orm_mode = True
