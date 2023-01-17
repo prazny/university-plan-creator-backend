@@ -24,4 +24,4 @@ def delete_semester(db: Session, semester_id: int) -> bool:
     db_item = get_semester(db, semester_id)
     db.delete(db_item)
     db.commit()
-    return Truae
+    return True

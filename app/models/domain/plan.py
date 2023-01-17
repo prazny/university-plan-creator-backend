@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String, ForeignKey, Enum
 import enum
 from sqlalchemy.orm import relationship
 from app.models.domain.base import Base
-from app.models.domain.semester import plan_semester
+# from app.models.domain.semester import plan_semester
 
 
 class Form(enum.Enum):
@@ -21,4 +21,5 @@ class Plan(Base):
     # field_id = Column(Integer(), nullable = False)
 
     field = relationship("Field", back_populates="plans")
-    semesters = relationship("Plan", secondary=plan_semester, backref="plans")
+    # semesters = relationship("Plan", back_populates="plan")
+    # semesters = relationship("Plan", secondary=plan_semester, backref="plans")
