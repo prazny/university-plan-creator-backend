@@ -4,12 +4,12 @@ from sqlalchemy.orm import relationship
 from app.models.domain.base import Base
 
 
-class Level(enum.Enum):
+class Level(str, enum.Enum):
     undergraduate = 'undergraduate'
     engineering = 'engineering'
 
 
-class Profile(enum.Enum):
+class Profile(str, enum.Enum):
     academic = 'academic'
     practical = 'practical'
 
