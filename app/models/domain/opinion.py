@@ -1,6 +1,7 @@
 import enum
 
-from sqlalchemy import Column, Integer, String, Enum, Boolean
+from sqlalchemy import Column, Integer, String, Enum, Boolean, ForeignKey
+from sqlalchemy.orm import relationship
 
 from app.models.domain.base import Base
 
@@ -16,5 +17,7 @@ class Opinion(Base):
     is_approved = Column(Boolean, nullable=False)
     description = Column(String(50), nullable=False)
     status = Column(Enum(Status), nullable=True)
-    user = Column(String(50), nullable=False)
-    plan = Column(String(50), nullable=False)
+    user = relationship("User", back_populates="opinions")
+    user_id = Column(Integer, ForeignKey('user.id'))
+    plan = relationship("Plan", back_populates="opinions")
+    plan_id = Column(Integer, ForeignKey('plan.id'))

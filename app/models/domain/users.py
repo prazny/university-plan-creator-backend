@@ -10,3 +10,4 @@ class User(Base):
     login = Column(String(30), nullable=False)
     email = Column(String(30), nullable=False)
     password = Column(String(30), nullable=False)
+    opinions = relationship("Opinion", back_populates="user")

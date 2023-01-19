@@ -13,7 +13,9 @@ class OpinionBase(BaseModel):
     description: str
     status: Status
     user: str
+    user_id: int
     plan: str
+    plan_id: int
 
     class Config:
         orm_mode = True
