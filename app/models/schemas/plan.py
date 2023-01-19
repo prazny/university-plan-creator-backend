@@ -14,6 +14,7 @@ class PlanBase(BaseModel):
     number_of_semesters: int
     lang: str
     field_id: int
+    opinion_id: int
 
     class Config:
         orm_mode = True

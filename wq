@@ -1,0 +1,34 @@
+[33m454a646[m[33m ([m[1;36mHEAD -> [m[1;32musers[m[33m)[m need to come back
+[33mab9eda0[m Merge branch 'main' into users
+[33ma64392b[m merging in progress
+[33m18016cb[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m Merge pull request #3 from prazny/plans
+[33mb18fb01[m[33m ([m[1;31morigin/plans[m[33m)[m correct semesters crud
+[33me049ef8[m Merge pull request #2 from prazny/plans
+[33mb299c54[m add semester crud
+[33mf33e12d[m add users to api
+[33mc9fdf76[m add models
+[33m69a973c[m Merge branch 'main' into users
+[33m52f1b34[m add entity to domain
+[33m5a7502c[m add migration
+[33me6f0bbc[m add delete semester
+[33mabe405a[m change field enums args
+[33m9fd14c4[m add delete faculty
+[33m8657e1d[m Working plans without enums
+[33m3b9d46e[m[33m ([m[1;31morigin/opinions[m[33m, [m[1;32mopinions[m[33m)[m correct course model
+[33ma4cafef[m Merge pull request #1 from prazny/opinions
+[33m25328dd[m correct course entity
+[33m80d5cde[m correct small errors
+[33m765ede1[m correct migration
+[33m2539eb6[m add endpoint and get all and create method
+[33m5e9428e[m add creating opinions table migration
+[33m6d00dc2[m[33m ([m[1;31morigin/add_activities[m[33m, [m[1;32madd_activities[m[33m)[m add crud for course
+[33mbecb9ec[m add actitivites edit
+[33m9af3e09[m add activities get all and create endpoint
+[33mde97962[m Refactoring
+[33mb9a50eb[m Add readme.
+[33m8c39ce8[m Change response model in faculties route.
+[33m605ad9f[m Add basic models
+[33m8ce43dc[m Change .env location
+[33m84ba3d4[m Merge branch 'main' of https://github.com/prazny/university-plan-creator-backend
+[33me28fdeb[m Init
+[33meed2327[m Initial commit
