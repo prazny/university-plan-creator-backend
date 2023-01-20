@@ -1,9 +1,14 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, Enum
+from sqlalchemy import Column, Integer, String, ForeignKey, Enum, Table
 import enum
 from sqlalchemy.orm import relationship
 from app.models.domain.base import Base
-# from app.models.domain.semester import plan_semester
 
+plan_semester = Table(
+    "plan_semester",
+    Base.metadata,
+    Column("plan_id", ForeignKey("plans.id"), primary_key=True),
+    Column("semester_id", ForeignKey("semesters.id"), primary_key=True)
+)
 
 class Form(enum.Enum):
     fulltime = 'fulltime'
@@ -20,6 +25,5 @@ class Plan(Base):
     field_id = Column(Integer, ForeignKey("fields.id"), nullable=False)
     # field_id = Column(Integer(), nullable = False)
 
-    field = relationship("Field", back_populates="plans")
-    # semesters = relationship("Plan", back_populates="plan")
-    # semesters = relationship("Plan", secondary=plan_semester, backref="plans")
+    fields = relationship("Field", back_populates="plans")
+    semesters = relationship("Semester", secondary=plan_semester, backref="plans")

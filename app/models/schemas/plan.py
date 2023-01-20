@@ -24,7 +24,7 @@ class Plan(PlanBase):
 
 
 class PlanCreate(PlanBase):
-    pass
+    semesters_id: List[int] = []
 
 
 class PlanUpdate(PlanBase):
