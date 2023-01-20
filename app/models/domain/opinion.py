@@ -21,4 +21,5 @@ class Opinion(Base):
     user = relationship("User", back_populates="opinions")
     user_id = Column(Integer, ForeignKey('users.id'))
 
-    plan = Column(String(50), nullable=False)
+    plan = relationship("Plan", back_populates="opinions")
+    plan_id = Column(Integer, ForeignKey('plans.id'))

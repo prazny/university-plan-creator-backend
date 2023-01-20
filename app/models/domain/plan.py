@@ -23,3 +23,4 @@ class Plan(Base):
     field = relationship("Field", back_populates="plans")
     # semesters = relationship("Plan", back_populates="plan")
     # semesters = relationship("Plan", secondary=plan_semester, backref="plans")
+    opinions = relationship("Opinion", back_populates="plan")
