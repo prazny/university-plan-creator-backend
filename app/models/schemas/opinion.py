@@ -12,8 +12,8 @@ class OpinionBase(BaseModel):
     is_approved: bool
     description: str
     status: Status
-    user: str
-    plan: str
+    user_id: int
+    plan_id: int
 
     class Config:
         orm_mode = True
