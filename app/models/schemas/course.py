@@ -6,9 +6,10 @@ from pydantic import validator
 
 from app.models.domain.course import Type, Form
 from app.models.schemas.base import Base as BaseModel
+from app.models.schemas.activity import ActivityBase
 
 
-class CourseBase(BaseModel):
+class CourseBase(ActivityBase):
     hours_count: int
     code: str
     type: Type

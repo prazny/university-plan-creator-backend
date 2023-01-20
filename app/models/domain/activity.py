@@ -11,3 +11,5 @@ class Activity(Base):
     cnps = Column(Integer(), nullable=False)
     zzu = Column(Integer(), nullable=False)
     bu = Column(Integer(), nullable=False)
+    type_of_activity = Column('type', String(50))
+    __mapper_args__ = {'polymorphic_on': type_of_activity}
