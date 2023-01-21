@@ -23,4 +23,4 @@ class Field(Base):
     faculty_id = Column(Integer, ForeignKey("faculties.id"), nullable=False)
 
     faculty = relationship("Faculty", backref="fields")
-    plans = relationship("Plan", backref="fields")
+    plans = relationship("Plan", back_populates="fields")

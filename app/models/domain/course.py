@@ -2,6 +2,7 @@ from sqlalchemy import Column, Integer, String, ForeignKey, Enum
 import enum
 from sqlalchemy.orm import relationship
 from app.models.domain.base import Base
+from app.models.domain.activity import Activity
 
 
 class Type(enum.Enum):
@@ -19,9 +20,10 @@ class Form(enum.Enum):
     remote = 'remote'
 
 
-class Course(Base):
+class Course(Activity):
     __tablename__ = 'courses'
-    id = Column(Integer, primary_key=True, index=True)
+    __mapper_args__ = {'polymorphic_identity': 'course'}
+    id = Column(Integer, ForeignKey('activities.id'), primary_key=True, index=True)
     hours_count = Column(Integer, nullable=False)
     code = Column(String(50), nullable=False)
     type = Column(Enum(Type), nullable=False)
