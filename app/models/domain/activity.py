@@ -7,6 +7,7 @@ from app.models.domain.base import Base
 class Activity(Base):
     __tablename__ = 'activities'
     id = Column(Integer, primary_key=True, index=True)
+    name = Column(String(50), nullable=False)
     ects = Column(Integer(), nullable=False)
     cnps = Column(Integer(), nullable=False)
     zzu = Column(Integer(), nullable=False)

@@ -9,6 +9,7 @@ class SemesterBase(BaseModel):
     max_ects_deficit: int
     semester_number: int
     # plan_id: int
+    activities: List[Activity]
 
     class Config:
         orm_mode = True
@@ -19,7 +20,7 @@ class Semester(SemesterBase):
 
 
 class SemesterCreate(SemesterBase):
-    activities_id: List[int] = []
+    pass
 
 
 class SemesterUpdate(SemesterBase):

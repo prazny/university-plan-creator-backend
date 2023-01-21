@@ -18,6 +18,11 @@ def create_plans(plan: PlanCreate, db: Session = Depends(get_db)):
     it = Plan_repo.create_plan(db, plan)
     return it
 
+@router.get("/{id}", response_model=Plan, tags=['plans'])
+def get_plan(id: int, db: Session = Depends(get_db)):
+    it = Plan_repo.get_plan(db, id)
+    return it
+
 
 # @router.put("/{plan_id}", response_model=Plan, tags=['plans'])
 # def update_plans(plan_id: int, plan: PlanUpdate, db: Session = Depends(get_db)):

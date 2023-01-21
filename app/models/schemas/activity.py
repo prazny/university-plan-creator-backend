@@ -5,6 +5,7 @@ from app.models.schemas.base import Base as BaseModel
 
 
 class ActivityBase(BaseModel):
+    name: str
     ects: int
     cnps: int
     zzu: int

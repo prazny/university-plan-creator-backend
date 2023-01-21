@@ -12,6 +12,10 @@ router = APIRouter()
 async def get_fields(offset: int = 0, limit: int = 25, db: Session = Depends(get_db)):
     return fields_repo.get_fields(db, offset, limit)
 
+@router.get("/{id}", response_model=Field, tags=['fields'])
+def get_field(id: int, db: Session = Depends(get_db)):
+    it = fields_repo.get_field(db, id)
+    return it
 
 @router.post("", response_model=Field, tags=['fields'])
 def create_fields(field: FieldCreate, db: Session = Depends(get_db)):
