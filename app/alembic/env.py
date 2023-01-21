@@ -32,6 +32,8 @@ from app.models.domain.field import Field
 from app.models.domain.module import Module
 from app.models.domain.plan import Plan
 from app.models.domain.semester import Semester
+from app.models.domain.opinion import Opinion
+from app.models.domain.user import User
 
 target_metadata = Base.metadata
 

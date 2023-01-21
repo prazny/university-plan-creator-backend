@@ -6,14 +6,15 @@ from pydantic import validator
 
 from app.models.domain.opinion import Status
 from app.models.schemas.base import Base as BaseModel
+from app.models.schemas.user import User
 
 
 class OpinionBase(BaseModel):
     is_approved: bool
     description: str
     status: Status
-    user: str
-    plan: str
+    user: User
+    plan_id: int
 
     class Config:
         orm_mode = True
