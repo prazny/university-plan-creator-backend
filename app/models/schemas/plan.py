@@ -3,10 +3,13 @@ import enum
 
 from pydantic import validator
 from app.models.schemas.base import Base as BaseModel
+from app.models.schemas.opinion import Opinion
+
 
 class Form(enum.Enum):
     fulltime = 'fulltime'
     parttime = 'parttime'
+
 
 class PlanBase(BaseModel):
     year: int
@@ -14,6 +17,7 @@ class PlanBase(BaseModel):
     number_of_semesters: int
     lang: str
     field_id: int
+    opinions: list[Opinion]
 
     class Config:
         orm_mode = True

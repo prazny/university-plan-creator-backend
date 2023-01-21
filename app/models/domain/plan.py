@@ -25,5 +25,8 @@ class Plan(Base):
     field_id = Column(Integer, ForeignKey("fields.id"), nullable=False)
     # field_id = Column(Integer(), nullable = False)
 
+
     fields = relationship("Field", back_populates="plans")
     semesters = relationship("Semester", secondary=plan_semester, backref="plans")
+    opinions = relationship("Opinion", back_populates="plan")
+
