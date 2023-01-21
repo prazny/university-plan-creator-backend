@@ -13,7 +13,7 @@ class OpinionBase(BaseModel):
     is_approved: bool
     description: str
     status: Status
-    user: User
+    user_id: int
     plan_id: int
 
     class Config:
