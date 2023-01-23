@@ -13,6 +13,12 @@ async def get_users(offset: int = 0, limit: int = 25, db: Session = Depends(get_
     return user_repo.get_users(db, offset, limit)
 
 
+@router.get("/{id}", response_model=User, tags=['users'])
+def get_user(id: int, db: Session = Depends(get_db)):
+    it = user_repo.get_user(db, id)
+    return it
+
+
 @router.post("", response_model=User, tags=['users'])
 def create_user(user: UserCreate, db: Session = Depends(get_db)):
     it = user_repo.create_user(db, user)

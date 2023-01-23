@@ -13,6 +13,12 @@ async def get_opinions(offset: int = 0, limit: int = 25, db: Session = Depends(g
     return opinions_repo.get_opinions(db, offset, limit)
 
 
+@router.get("/{id}", response_model=Opinion, tags=['opinions'])
+def get_opinion(id: int, db: Session = Depends(get_db)):
+    it = opinions_repo.get_opinion(db, id)
+    return it
+
+
 @router.post("", response_model=Opinion, tags=['opinions'])
 def create_opinion(opinion: OpinionCreate, db: Session = Depends(get_db)):
     it = opinions_repo.create_opinion(db, opinion)
