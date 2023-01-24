@@ -8,6 +8,12 @@ from app.models.schemas.course import CourseCreate, CourseUpdate, Course
 router = APIRouter()
 
 
+@router.get("/{id}", response_model=Course, tags=['courses'])
+def get_course(id: int, db: Session = Depends(get_db)):
+    it = courses_repo.get_course(db, id)
+    return it
+
+
 @router.get("", response_model=list[Course], tags=['courses'])
 async def get_courses(offset: int = 0, limit: int = 25, db: Session = Depends(get_db)):
     return courses_repo.get_courses(db, offset, limit)
