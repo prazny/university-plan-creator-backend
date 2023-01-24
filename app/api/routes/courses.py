@@ -25,6 +25,12 @@ def create_course(course: CourseCreate, db: Session = Depends(get_db)):
     return it
 
 
+@router.patch("/{course_id}", response_model=Course, tags=['courses'])
+def update_course(course_id: int, course: CourseUpdate, db: Session = Depends(get_db)):
+    it = courses_repo.update_course(db, course_id, course)
+    return it
+
+
 @router.put("/{course_id}", response_model=Course, tags=['courses'])
 def update_course(course_id: int, course: CourseUpdate, db: Session = Depends(get_db)):
     it = courses_repo.update_course(db, course_id, course)
