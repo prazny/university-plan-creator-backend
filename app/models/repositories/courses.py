@@ -24,11 +24,16 @@ def create_course(db: Session, course: course_schema.CourseCreate):
 def update_course(db: Session, course_id: int, course: course_schema.CourseUpdate):
     course_to_edit = db.query(Course).filter(Course.id == course_id).first()
 
+    course_to_edit.name = course.name
+    course_to_edit.ects = course.ects
+    course_to_edit.cnps = course.cnps
+    course_to_edit.zzu = course.zzu
+    course_to_edit.bu = course.bu
+    course_to_edit.hours_count = course.hours_count
     course_to_edit.code = course.code
-    course_to_edit.course_form = course.course_form
     course_to_edit.type = course.type
     course_to_edit.completing_form = course.completing_form
-    course_to_edit.hours_count = course.hours_count
+    course_to_edit.course_form = course.course_form
 
     db.add(course_to_edit)
     db.commit()
