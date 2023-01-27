@@ -18,7 +18,7 @@ def get_semester(db: Session, offset: int = 0, limit: int = 25):
 
 def create_semester(db: Session, semester_create: semester_schema.SemesterCreate):
     db_item = Semester(max_ects_deficit = semester_create.max_ects_deficit, semester_number = semester_create.semester_number)
-    if (activities_elems := db.query(Activity).filter(Activity.id.in_(semester_create.activities_id))).count() == len(semester_create.activities_id):
+    if (activities_elems := db.query(Activity).filter(Activity.id.in_([semester.id for semester in semester_create.activities]))).count() == len(semester_create.activities):
         db_item.activities.extend(activities_elems)
     else:
         # even if at least one editor is not found, an error is raised
