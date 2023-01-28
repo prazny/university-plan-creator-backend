@@ -9,7 +9,7 @@ class SemesterBase(BaseModel):
     max_ects_deficit: int
     semester_number: int
     # plan_id: int
-    activities: Union[List[Activity], None]
+   
 
     class Config:
         orm_mode = True
@@ -17,10 +17,11 @@ class SemesterBase(BaseModel):
 
 class Semester(SemesterBase):
     id: int
+    activities: Union[List[Activity], None]
 
 
 class SemesterCreate(SemesterBase):
-    pass
+    activitiesIds: Union[List[int], None]
 
 
 class SemesterUpdate(SemesterBase):

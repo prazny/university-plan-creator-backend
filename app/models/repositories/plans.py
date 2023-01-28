@@ -21,8 +21,8 @@ def get_plans(db: Session, offset: int = 0, limit: int = 25):
 def create_plan(db: Session, plan: plan_schema.PlanCreate):
     db_item = Plan(year = plan.year, form = plan.form, number_of_semesters = plan.number_of_semesters, lang = plan.lang, field_id = plan.field_id)
 
-    if plan.semesters is not None:
-        if (semesters_elems := db.query(Semester).filter(Semester.id.in_([semester.id for semester in plan.semesters]))).count() == len(plan.semesters):
+    if plan.semestersIds is not None:
+        if (semesters_elems := db.query(Semester).filter(Semester.id.in_(plan.semestersIds))).count() == len(plan.semestersIds):
             db_item.semesters.extend(semesters_elems)
         else:
             # even if at least one editor is not found, an error is raised

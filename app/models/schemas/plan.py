@@ -19,7 +19,7 @@ class PlanBase(BaseModel):
     lang: str
     field_id: int
     opinions: Union[list[Opinion], None]
-    semesters: Union[List[Semester], None]
+   
 
     class Config:
         orm_mode = True
@@ -27,10 +27,11 @@ class PlanBase(BaseModel):
 
 class Plan(PlanBase):
     id: int
+    semesters: Union[List[Semester], None]
 
 
 class PlanCreate(PlanBase):
-    pass
+    semestersIds: Union[List[int], None]
 
 
 class PlanUpdate(PlanBase):
