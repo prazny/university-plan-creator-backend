@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Union
 
 from pydantic import validator
 from app.models.schemas.base import Base as BaseModel
@@ -9,7 +9,7 @@ class SemesterBase(BaseModel):
     max_ects_deficit: int
     semester_number: int
     # plan_id: int
-    activities: List[Activity]
+    activities: Union[List[Activity], None]
 
     class Config:
         orm_mode = True
