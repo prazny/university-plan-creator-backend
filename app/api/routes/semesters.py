@@ -10,7 +10,7 @@ router = APIRouter()
 
 @router.get("", response_model=list[Semester], tags=['semesters'])
 async def get_semesters(offset: int = 0, limit: int = 25, db: Session = Depends(get_db)):
-    return Semester_repo.get_semester(db, offset, limit)
+    return Semester_repo.get_semesters(db, offset, limit)
 
 
 @router.get("/{id}", response_model=Semester, tags=['semesters'])
