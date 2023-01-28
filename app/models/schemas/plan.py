@@ -7,6 +7,7 @@ from app.models.schemas.base import Base as BaseModel
 from app.models.schemas.opinion import Opinion
 from app.models.schemas.semester import Semester
 
+
 class Form(enum.Enum):
     fulltime = 'fulltime'
     parttime = 'parttime'
@@ -18,8 +19,6 @@ class PlanBase(BaseModel):
     number_of_semesters: int
     lang: str
     field_id: int
-    opinions: Union[list[Opinion], None]
-   
 
     class Config:
         orm_mode = True
@@ -28,10 +27,12 @@ class PlanBase(BaseModel):
 class Plan(PlanBase):
     id: int
     semesters: Union[List[Semester], None]
+    opinions: Union[List[Opinion], None]
 
 
 class PlanCreate(PlanBase):
     semestersIds: Union[List[int], None]
+    opinionsIds: Union[List[int], None]
 
 
 class PlanUpdate(PlanBase):
