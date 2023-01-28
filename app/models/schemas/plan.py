@@ -1,5 +1,6 @@
 from typing import List
 import enum
+from typing import Union
 
 from pydantic import validator
 from app.models.schemas.base import Base as BaseModel
@@ -17,8 +18,8 @@ class PlanBase(BaseModel):
     number_of_semesters: int
     lang: str
     field_id: int
-    opinions: list[Opinion]
-    semesters: List[Semester]
+    opinions: Union[list[Opinion], None]
+    semesters: Union[List[Semester], None]
 
     class Config:
         orm_mode = True
