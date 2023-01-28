@@ -13,6 +13,11 @@ async def get_semesters(offset: int = 0, limit: int = 25, db: Session = Depends(
     return Semester_repo.get_semester(db, offset, limit)
 
 
+@router.get("/{id}", response_model=Semester, tags=['semesters'])
+async def get_semester(id: int, db: Session = Depends(get_db)):
+    return Semester_repo.get_semester(db, id)
+
+
 @router.post("", response_model=Semester, tags=['semesters'])
 def create_semesters(plan: SemesterCreate, db: Session = Depends(get_db)):
     it = Semester_repo.create_semester(db, plan)
