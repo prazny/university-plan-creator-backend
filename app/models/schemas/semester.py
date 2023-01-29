@@ -6,23 +6,25 @@ from app.models.schemas.activity import Activity
 
 
 class SemesterBase(BaseModel):
-    max_ects_deficit: int
-    semester_number: int
-    # plan_id: int
    
-
     class Config:
         orm_mode = True
 
 
 class Semester(SemesterBase):
     id: int
+    max_ects_deficit: int
+    semester_number: int
+    # plan_id: int
     activities: Union[List[Activity], None]
 
 
 class SemesterCreate(SemesterBase):
+    max_ects_deficit: int
+    semester_number: int
+    # plan_id: int
     activitiesIds: Union[List[int], None]
 
 
 class SemesterUpdate(SemesterBase):
-    pass
+    activitiesIds: Union[List[int], None]

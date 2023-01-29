@@ -22,3 +22,14 @@ async def get_semester(id: int, db: Session = Depends(get_db)):
 def create_semesters(plan: SemesterCreate, db: Session = Depends(get_db)):
     it = Semester_repo.create_semester(db, plan)
     return it
+
+@router.patch("/{semester_id}/{activity_id}", response_model=Semester, tags=['semesters'])
+def update_semester_with_activity(semester_id: int, activity_id: int, db: Session = Depends(get_db)):
+    it = Semester_repo.update_semester_with_activity(db, semester_id, activity_id)
+    return it
+
+@router.delete("/{semester_id}/{activity_id}", response_model=bool, tags=['semesters'])
+def delete_semester_with_activity(semester_id: int, activity_id: int, db: Session = Depends(get_db)):
+    it = Semester_repo.delete_semester_with_activity(db, semester_id, activity_id)
+    return it
+

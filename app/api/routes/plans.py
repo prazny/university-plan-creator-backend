@@ -23,6 +23,10 @@ def get_plan(id: int, db: Session = Depends(get_db)):
     it = Plan_repo.get_plan(db, id)
     return it
 
+@router.delete("/{plan_id}", response_model=bool, tags=['plans'])
+def delete_plan(plan_id: int, db: Session = Depends(get_db)):
+    it = Plan_repo.delete_plan(db, plan_id)
+    return it
 
 # @router.put("/{plan_id}", response_model=Plan, tags=['plans'])
 # def update_plans(plan_id: int, plan: PlanUpdate, db: Session = Depends(get_db)):

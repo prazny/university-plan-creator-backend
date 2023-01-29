@@ -35,3 +35,8 @@ def update_course(course_id: int, course: CourseUpdate, db: Session = Depends(ge
 def update_course(course_id: int, course: CourseUpdate, db: Session = Depends(get_db)):
     it = courses_repo.update_course(db, course_id, course)
     return it
+
+@router.delete("/{id}", response_model=bool, tags=['courses'])
+def create_faculty(id: int, db: Session = Depends(get_db)):
+    it = courses_repo.delete_course(db, id)
+    return it

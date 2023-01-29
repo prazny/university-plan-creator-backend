@@ -33,3 +33,12 @@ def create_plan(db: Session, plan: plan_schema.PlanCreate):
     db.commit()
     db.refresh(db_item)
     return db_item
+
+def delete_plan(db: Session, id: int) -> bool:
+    db_item = get_plan(db, id)
+    # if (semesters_elems := db.query(Semester).filter(Semester.id.in_(plan.semestersIds))).count() == len(plan.semestersIds):
+    #     db_item.semesters.extend(semesters_elems)
+       
+    db.delete(db_item)
+    db.commit()
+    return True

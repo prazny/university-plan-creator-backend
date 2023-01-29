@@ -39,3 +39,27 @@ def delete_semester(db: Session, semester_id: int) -> bool:
     db.delete(db_item)
     db.commit()
     return True
+
+def update_semester_with_activity(db: Session, semester_id: int, activity_id: int):
+    semester_to_edit = db.query(Semester).filter(Semester.id == semester_id).first()
+
+    if ((activities_elem := db.query(Activity).filter(Activity.id == activity_id)).count() == 1):
+        semester_to_edit.activities.extend(activities_elem)
+
+    db.add(semester_to_edit)
+    db.commit()
+    db.refresh(semester_to_edit)
+
+    return semester_to_edit
+
+def delete_semester_with_activity(db: Session, semester_id: int, activity_id: int):
+    semester_to_edit = db.query(Semester).filter(Semester.id == semester_id).first()
+
+    if ((activities_elem := db.query(Activity).filter(Activity.id == activity_id)).count() == 1):
+        semester_to_edit.activities.remove(activities_elem.one())
+
+    db.add(semester_to_edit)
+    db.commit()
+    db.refresh(semester_to_edit)
+
+    return True

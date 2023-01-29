@@ -40,3 +40,12 @@ def update_course(db: Session, course_id: int, course: course_schema.CourseUpdat
     db.refresh(course_to_edit)
 
     return course_to_edit
+
+def delete_course(db: Session, id: int) -> bool:
+    db_item = get_course(db, id)
+    # if (semesters_elems := db.query(Semester).filter(Semester.id.in_(plan.semestersIds))).count() == len(plan.semestersIds):
+    #     db_item.semesters.extend(semesters_elems)
+       
+    db.delete(db_item)
+    db.commit()
+    return True
