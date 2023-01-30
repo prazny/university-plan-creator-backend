@@ -12,3 +12,13 @@ Generates migration scripts.
 ### `alembic upgrade head`
 
 Upgrade database.
+
+## About Project
+Team project made during studies
+
+### What have We learned?
+
+- Teamwork with git
+- Writing UML documentation based on customer requirements
+- Code production based on documentation
+- UI Design
