@@ -15,9 +15,9 @@ class Form(enum.Enum):
 
 class PlanBase(BaseModel):
     year: int
-    form: str
-    number_of_semesters: int
-    lang: str
+    form: str | None
+    number_of_semesters:  int | None
+    lang:  str | None
     field_id: int
 
     class Config:
